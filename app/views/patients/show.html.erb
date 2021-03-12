@@ -1,0 +1,8 @@
+
+<div class="jumbotron">
+  <h1 class="display-4"><%= @patient.first_name %> <%= @patient.last_name %></h1>
+  <p class="lead"><%= @patient.email %> | <%= @patient.phone %> | <%= @patient.vaccine_amount %> | <%= @patient.vaccine_type %> | <%= @patient.vaccine_location %></p>
+ <br/>
+  <%= link_to 'Edit', edit_patient_path(@patient), class:"btn btn-dark" %> 
+  <%= link_to 'Back', patients_path, class:"btn btn-dark" %>
+</div>

@@ -1,0 +1,55 @@
+<%= form_with(model: patient) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+        <% patient.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <% form.label :first_name %>
+    <%= form.text_field :first_name, class:"form-control", placeholder:"First Name" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <% form.label :last_name %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <% form.label :email %>
+    <%= form.text_field :email, class:"form-control", placeholder:"Email" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <% form.label :phone %>
+    <%= form.text_field :phone, class:"form-control", placeholder:"Phone" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <% form.label :vaccine_amount %>
+    <%= form.text_field :vaccine_amount, class:"form-control", placeholder:"Number of doses" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <% form.label :vaccine_type %>
+    <%= form.text_field :vaccine_type, class:"form-control", placeholder:"Vaccine Type" %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <% form.label :vaccine_location %>
+    <%= form.text_field :vaccine_location, class:"form-control", placeholder:"Vaccine Location" %>
+  </div>
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :patient_user_id, class:"form-control", value:current_user.id, type: :hidden %>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= form.submit class:'btn btn-dark'%>
+  </div>
+<% end %>
