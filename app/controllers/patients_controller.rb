@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /patients or /patients.json
   def index
     @patients = Patient.all
@@ -64,6 +64,6 @@ class PatientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def patient_params
-      params.require(:patient).permit(:first_name, :last_name, :email, :phone, :vaccine_amount, :vaccine_type, :vaccine_location)
+      params.require(:patient).permit(:first_name, :last_name, :email, :phone, :vaccine_amount, :vaccine_type, :vaccine_location, :user_id)
     end
 end
