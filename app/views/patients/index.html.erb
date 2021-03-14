@@ -1,34 +1,36 @@
+<% if user_signed_in? %>
+
+
 <h1>Patients</h1>
 
 <table class="table table table-bordered border-primary table-hover">
   <thead class="table-dark">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Vaccine amount</th>
       <th>Vaccine type</th>
       <th>Vaccine location</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @patients.each do |patient| %>
+    <% if patient.user == current_user %>
       <tr>
-        <td><%= patient.first_name %></td>
-        <td><%= patient.last_name %></td>
+        <td> <%= link_to patient.first_name + ' ' + patient.last_name, patient %></td>
         <td><%= patient.email %></td>
         <td><%= patient.phone %></td>
         <td><%= patient.vaccine_amount %></td>
         <td><%= patient.vaccine_type %></td>
         <td><%= patient.vaccine_location %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--<td><%= patient.user_id %></td>-->
+        <td><%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm"%></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -36,3 +38,10 @@
 <br>
 
 <%= link_to 'New Patient', new_patient_path, class:"btn btn-dark" %>
+<% else %>
+
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+
+<% end %>

@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :expected_user, only:[:edit, :update, :destroy]
   # GET /patients or /patients.json
   def index
     @patients = Patient.all
@@ -12,7 +13,8 @@ class PatientsController < ApplicationController
 
   # GET /patients/new
   def new
-    @patient = Patient.new
+    #patient = Patient.new
+    @patient = current_user.patients.build();
   end
 
   # GET /patients/1/edit
@@ -21,8 +23,8 @@ class PatientsController < ApplicationController
 
   # POST /patients or /patients.json
   def create
-    @patient = Patient.new(patient_params)
-
+    #patient = Patient.new(patient_params)
+    @patient = current_user.patients.build(patient_params)
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient, notice: "Patient was successfully created." }
@@ -54,6 +56,11 @@ class PatientsController < ApplicationController
       format.html { redirect_to patients_url, notice: "Patient was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def expected_user
+    @patient = current_user.patients.find_by(id: params[:id])
+    redirect_to patients_path, notice: "Not Authorized to modify this Patient" if @patient.nil?
   end
 
   private
