@@ -4,7 +4,9 @@ class PatientsController < ApplicationController
   before_action :expected_user, only:[:edit, :update, :destroy]
   # GET /patients or /patients.json
   def index
-    @patients = Patient.all
+    @q = Patient.ransack(params[:q])
+    @patients = @q.result
+    #@patients = Patient.all
   end
 
   # GET /patients/1 or /patients/1.json

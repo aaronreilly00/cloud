@@ -2,6 +2,13 @@
 
 
 <h1>Patients</h1>
+<%= search_form_for @q do |f| %>
+
+      <%= f.label :vaccine_location_cont %>
+      <%= f.search_field :vaccine_location_cont %>
+
+      <%= f.submit %>
+    <% end %>
 
 <table class="table table table-bordered border-primary table-hover">
   <thead class="table-dark">
