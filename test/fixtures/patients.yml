@@ -1,19 +1,28 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  vaccine_amount: MyString
-  vaccine_type: MyString
-  vaccine_location: MyString
+aaron:
+  first_name: "Aaron"
+  last_name: "Test"
+  email: "aaronTest@gmail.com"
+  phone: "08334222"
+  vaccine_amount: "2"
+  vaccine_type: "jj"
+  vaccine_location: "Dublin"
 
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  vaccine_amount: MyString
-  vaccine_type: MyString
-  vaccine_location: MyString
+john:
+  first_name: "John"
+  last_name: "Test"
+  email: "johnTest@gmail.com"
+  phone: "0832322"
+  vaccine_amount: "1"
+  vaccine_type: "zzz"
+  vaccine_location: "London"
+
+paul:
+  first_name: "Paul"
+  last_name: "Test1"
+  email: "paulTest@gmail.com"
+  phone: "08323221"
+  vaccine_amount: "11"
+  vaccine_type: "zzz1"
+  vaccine_location: "London"
