@@ -6,8 +6,8 @@ class Reporter
 	end
 
 	def report
-		stock_left = {name: "Aaron", VaccineLocation: "London", amount: 1}
-		@formatter.format(stock_left)
+		patient = {name: "Aaron", VaccineLocation: "London", amount: 1}
+		@formatter.format(patient)
 	end
 end
 
@@ -22,7 +22,7 @@ class HTMLFormatter
     	html = ""
 
    	 	html << "<ul>"
-    	data.each { |product, amount| html << "<li>#{product}: #{amount}</li>" }
+    	data.each { |name, amount| html << "<li>#{name}: #{amount}</li>" }
     	html << "</ul>"
 
     	html
@@ -35,5 +35,5 @@ class PlainText
   	end
 end
 
-r = Reporter.new(JSONFormatter)
+r = Reporter.new(PlainText)
 p r.report
