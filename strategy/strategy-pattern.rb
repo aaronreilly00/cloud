@@ -35,5 +35,5 @@ class PlainText
   	end
 end
 
-r = Reporter.new(PlainText)
+r = Reporter.new(JSONFormatter)
 p r.report

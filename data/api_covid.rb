@@ -13,3 +13,8 @@ end
 
 vaccine_tracker_rest = VaccineTrackerRest.new
 puts vaccine_tracker_rest.tracker
+
+File.open("tracking.txt", "w") do |file|
+	file.write(vaccine_tracker_rest.tracker)
+end
+
