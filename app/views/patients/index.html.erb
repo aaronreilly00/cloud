@@ -46,9 +46,8 @@
 <%= link_to 'New Patient', new_patient_path, class:"btn btn-dark" %>
 <br/>
 <% else %>
-
-<h1>You have signed out successfully</h1>
-<p>Thank you for your services, please click the link below to sign in</p>
-<br/>
-<%= link_to 'Sign In', new_user_session_path, class:"navbar-brand"%>
+  <h1>You have signed out successfully</h1>
+  <p>Thank you for your services, please click the link below to sign in</p>
+  <br/>
+  <%= link_to 'Sign In', new_user_session_path, class:"navbar-brand"%>
 <% end %>

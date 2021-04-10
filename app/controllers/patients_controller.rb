@@ -6,7 +6,6 @@ class PatientsController < ApplicationController
   def index
     @q = Patient.ransack(params[:q])
     @patients = @q.result
-    #@patients = Patient.all
   end
 
   # GET /patients/1 or /patients/1.json
